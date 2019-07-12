@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.19.0",
     "polished": "^3.4.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -12,7 +13,8 @@
     "styled-components": "^4.3.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"yarn api\" \"react-scripts start\" -n \"api,react\"",
+    "api": "yarn json-server server.json -p 3333",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -33,6 +35,7 @@
     ]
   },
   "devDependencies": {
+    "concurrently": "^4.1.1",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "^6.0.0",
@@ -40,6 +43,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.2",
+    "json-server": "^0.15.0",
     "prettier": "^1.18.2"
   }
 }

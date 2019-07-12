@@ -1,0 +1,66 @@
+{
+  "stock": [
+    {
+      "id": 1,
+      "amount": 6
+    },
+    {
+      "id": 2,
+      "amount": 5
+    },
+    {
+      "id": 3,
+      "amount": 2
+    },
+    {
+      "id": 4,
+      "amount": 1
+    },
+    {
+      "id": 5,
+      "amount": 5
+    },
+    {
+      "id": 6,
+      "amount": 16
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "Dark Shoe",
+      "price": 99.9,
+      "image": "https://i.ibb.co/gDZ3PY6/tenis1.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Blended Shoe",
+      "price": 139.9,
+      "image": "https://i.ibb.co/6bfF3nY/tenis2.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Light Shoe",
+      "price": 89.9,
+      "image": "https://i.ibb.co/M25ZckK/tenis3.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Dark Shoe 2.0",
+      "price": 119.9,
+      "image": "https://i.ibb.co/gDZ3PY6/tenis1.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Blended Shoe 2.0",
+      "price": 139.9,
+      "image": "https://i.ibb.co/6bfF3nY/tenis2.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Light Shoe 2.0",
+      "price": 99.9,
+      "image": "https://i.ibb.co/M25ZckK/tenis3.jpg"
+    }
+  ]
+}
