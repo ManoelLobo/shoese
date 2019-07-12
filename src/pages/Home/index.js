@@ -1,107 +1,46 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { MdAddShoppingCart } from 'react-icons/md';
+
+import api from '../../services/api';
+import { formatPrice } from '../../utils/format';
 
 import { ProductList } from './styles';
 
-export default function Home() {
-  return (
-    <ProductList>
-      <li>
-        <img
-          src="https://dummyimage.com/300x300/fff/000000&text=This+is+a+shoe+picture"
-          alt="Sneakers"
-        />
-        <strong>Super Stepper</strong>
-        <span>$ 99.99</span>
+export default class Home extends Component {
+  state = { products: [] };
 
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#f6f6fa" /> 6
-          </div>
+  async componentDidMount() {
+    const response = await api.get('/products');
 
-          <span>Add to cart</span>
-        </button>
-      </li>
-      <li>
-        <img
-          src="https://dummyimage.com/300x300/fff/000000&text=This+is+a+shoe+picture"
-          alt="Sneakers"
-        />
-        <strong>Super Stepper</strong>
-        <span>$ 99.99</span>
+    const data = response.data.map(product => ({
+      ...product,
+      formattedPrice: formatPrice(product.price),
+    }));
 
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#f6f6fa" />6
-          </div>
+    this.setState({ products: data });
+  }
 
-          <span>Add to cart</span>
-        </button>
-      </li>
-      <li>
-        <img
-          src="https://dummyimage.com/300x300/fff/000000&text=This+is+a+shoe+picture"
-          alt="Sneakers"
-        />
-        <strong>Super Stepper</strong>
-        <span>$ 99.99</span>
+  render() {
+    const { products } = this.state;
 
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#f6f6fa" />6
-          </div>
+    return (
+      <ProductList>
+        {products.map(product => (
+          <li key={product.id.toString()}>
+            <img src={product.image} alt={product.title} />
+            <strong>{product.title}</strong>
+            <span>{product.formattedPrice}</span>
 
-          <span>Add to cart</span>
-        </button>
-      </li>
-      <li>
-        <img
-          src="https://dummyimage.com/300x300/fff/000000&text=This+is+a+shoe+picture"
-          alt="Sneakers"
-        />
-        <strong>Super Stepper</strong>
-        <span>$ 99.99</span>
+            <button type="button">
+              <div>
+                <MdAddShoppingCart size={16} color="#f6f6fa" /> 6
+              </div>
 
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#f6f6fa" />6
-          </div>
-
-          <span>Add to cart</span>
-        </button>
-      </li>
-      <li>
-        <img
-          src="https://dummyimage.com/300x300/fff/000000&text=This+is+a+shoe+picture"
-          alt="Sneakers"
-        />
-        <strong>Super Stepper</strong>
-        <span>$ 99.99</span>
-
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#f6f6fa" />6
-          </div>
-
-          <span>Add to cart</span>
-        </button>
-      </li>
-      <li>
-        <img
-          src="https://dummyimage.com/300x300/fff/000000&text=This+is+a+shoe+picture"
-          alt="Sneakers"
-        />
-        <strong>Super Stepper</strong>
-        <span>$ 99.99</span>
-
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#f6f6fa" />6
-          </div>
-
-          <span>Add to cart</span>
-        </button>
-      </li>
-    </ProductList>
-  );
+              <span>Add to cart</span>
+            </button>
+          </li>
+        ))}
+      </ProductList>
+    );
+  }
 }

@@ -33,6 +33,12 @@
       "image": "https://i.ibb.co/gDZ3PY6/tenis1.jpg"
     },
     {
+      "id": 6,
+      "title": "Light Shoe 2.0",
+      "price": 99.9,
+      "image": "https://i.ibb.co/M25ZckK/tenis3.jpg"
+    },
+    {
       "id": 2,
       "title": "Blended Shoe",
       "price": 139.9,
@@ -55,12 +61,6 @@
       "title": "Blended Shoe 2.0",
       "price": 139.9,
       "image": "https://i.ibb.co/6bfF3nY/tenis2.jpg"
-    },
-    {
-      "id": 6,
-      "title": "Light Shoe 2.0",
-      "price": 99.9,
-      "image": "https://i.ibb.co/M25ZckK/tenis3.jpg"
     }
   ]
 }
