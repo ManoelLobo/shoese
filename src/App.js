@@ -1,12 +1,15 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-
 import Routes from './routes';
 import Header from './components/Header';
 import GlobalStyle from './styles/global';
 
 import store from './store';
+
+if (process.env.NODE_ENV === 'development') {
+  import('./config/reactotron');
+}
 
 function App() {
   return (

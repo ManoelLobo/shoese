@@ -2,6 +2,11 @@ import { createStore } from 'redux';
 
 import reducer from './modules/rootReducer';
 
-const store = createStore(reducer);
+import tron from '../config/reactotron';
+
+const enhancer =
+  process.env.NODE_ENV === 'development' ? tron.createEnhancer() : null;
+
+const store = createStore(reducer, enhancer);
 
 export default store;
