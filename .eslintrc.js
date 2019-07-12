@@ -21,5 +21,7 @@ module.exports = {
     'prettier/prettier': 'error',
     'react/jsx-filename-extension': ['warn', { extensions: ['.jsx', '.js'] }],
     'import/prefer-default-export': 'off',
+    'jsx-a11y/label-has-for': 'off',
+    'jsx-a11y/label-has-associated-control': [2, { assert: 'either' }],
   },
 };
