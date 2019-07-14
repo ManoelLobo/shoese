@@ -6,7 +6,9 @@ import saga from './modules/rootSaga';
 
 import tron from '../config/reactotron';
 
-const sagaMiddleware = createSagaMiddleware();
+const sagaMonitor =
+  process.env.NODE_ENV === 'development' ? tron.createSagaMonitor() : null;
+const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
 
 const enhancer =
   process.env.NODE_ENV === 'development'
