@@ -1,5 +1,9 @@
-export function addToCart(product) {
-  return { type: '@cart/ADD', product };
+export function addToCartRequest(productId) {
+  return { type: '@cart/ADD_REQUEST', productId };
+}
+
+export function addToCartSuccess(product) {
+  return { type: '@cart/ADD_SUCCESS', product };
 }
 
 export function removeFromCart(productId) {
@@ -7,5 +11,5 @@ export function removeFromCart(productId) {
 }
 
 export function updateAmount(id, amount) {
-  return { type: `@cart/UPDATE_AMOUNT`, id, amount };
+  return { type: '@cart/UPDATE_AMOUNT', id, amount };
 }
