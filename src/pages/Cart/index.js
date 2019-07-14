@@ -6,6 +6,7 @@ import {
 } from 'react-icons/md';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import { formatPrice } from '../../utils/format';
 import * as CartActions from '../../store/modules/cart/actions';
@@ -105,6 +106,13 @@ function Cart({ cart, totalPrice, removeFromCart, updateAmount }) {
     </Container>
   );
 }
+
+Cart.propTypes = {
+  cart: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  totalPrice: PropTypes.string.isRequired,
+  removeFromCart: PropTypes.func.isRequired,
+  updateAmount: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = state => ({
   cart: state.cart.map(product => ({
