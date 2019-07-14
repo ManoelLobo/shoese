@@ -14,6 +14,7 @@ import { ProductList } from './styles';
 class Home extends Component {
   static propTypes = {
     addToCart: PropTypes.func.isRequired,
+    amounts: PropTypes.shape().isRequired,
   };
 
   state = { products: [] };
@@ -37,6 +38,7 @@ class Home extends Component {
 
   render() {
     const { products } = this.state;
+    const { amounts } = this.props;
 
     return (
       <ProductList>
@@ -51,7 +53,8 @@ class Home extends Component {
               onClick={() => this.handleAddProduct(product)}
             >
               <div>
-                <MdAddShoppingCart size={16} color="#f6f6fa" /> 6
+                <MdAddShoppingCart size={16} color="#f6f6fa" />{' '}
+                {amounts[product.id] || 0}
               </div>
 
               <span>Add to cart</span>
@@ -63,10 +66,18 @@ class Home extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  amounts: state.cart.reduce((amounts, nextProduct) => {
+    amounts[nextProduct.id] = nextProduct.amount;
+
+    return amounts;
+  }, {}),
+});
+
 const mapDispatchToProps = dispatch =>
   bindActionCreators(CartActions, dispatch);
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Home);
