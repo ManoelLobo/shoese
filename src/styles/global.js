@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import bg from '../assets/images/bg.svg';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');

@@ -1,4 +1,5 @@
 import { call, select, put, all, takeLatest } from 'redux-saga/effects';
+import { toast } from 'react-toastify';
 
 import { addToCartSuccess, updateAmount } from './actions';
 
@@ -17,6 +18,7 @@ function* addToCart({ productId }) {
   const updatedAmount = cartAmount + 1;
 
   if (updatedAmount > stockAmount) {
+    toast.error("We don't have this amount in stock!");
     return;
   }
 
