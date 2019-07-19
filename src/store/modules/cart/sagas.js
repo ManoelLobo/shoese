@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { addToCartSuccess, updateAmountSuccess } from './actions';
 
 import api from '../../../services/api';
+import history from '../../../services/history';
 import { formatPrice } from '../../../utils/format';
 
 function* addToCart({ productId }) {
@@ -34,6 +35,9 @@ function* addToCart({ productId }) {
     };
 
     yield put(addToCartSuccess(data));
+
+    // if this is the first unity of the product, go to cart
+    history.push('/cart');
   }
 }
 
